@@ -24,7 +24,7 @@ warning PATCH_FIELD_TYPO  jsons/objects/PlantProps.json (objects[0].objdata.Cool
 需要 Node.js 22 或更高版本。
 
 ```powershell
-git clone <本仓库>
+git clone https://github.com/FengYue427/gpn-kit.git
 cd gpn-kit
 npm install
 npm run build

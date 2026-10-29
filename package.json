@@ -4,6 +4,14 @@
   "description": "PvZ2 Gardendless (GP-Next) mod 作者工具链:离线校验 mod 目录与 pack.json",
   "type": "module",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FengYue427/gpn-kit.git"
+  },
+  "homepage": "https://github.com/FengYue427/gpn-kit#readme",
+  "bugs": {
+    "url": "https://github.com/FengYue427/gpn-kit/issues"
+  },
   "bin": {
     "gpn": "dist/src/cli.js"
   },
