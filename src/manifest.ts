@@ -251,8 +251,9 @@ export function validateManifest(manifest: unknown, ctx: ManifestContext = { has
     }
   }
   if (isJs && !declaredFeatures.includes('experimental.jsModding')) {
+    // 仅作建议:文档没有要求,官方自己的 JS 示例 mod 也没有声明它(见 pvzge.entities)
     out.push(
-      diag('warning', 'JS_FEATURE_NOT_DECLARED', 'JS mod 建议在 requiredGpNextFeatures 中声明 "experimental.jsModding",否则玩家未开启 JS Modding 时只会遇到莫名其妙的加载失败', 'requiredGpNextFeatures'),
+      diag('info', 'JS_FEATURE_NOT_DECLARED', '可以在 requiredGpNextFeatures 中声明 "experimental.jsModding",这样玩家未开启 JS Modding 时会得到明确提示(官方文档没有强制要求)', 'requiredGpNextFeatures'),
     );
   }
 

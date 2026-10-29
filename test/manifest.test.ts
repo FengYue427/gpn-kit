@@ -185,9 +185,32 @@ describe('validateManifest: 平台版本与功能', () => {
     assert.ok(codes(validateManifest({ ...dataMod, requiredGpNextFeatures: 'experimental.jsModding' }), 'error').includes('FEATURES_TYPE'));
   });
 
-  it('JS mod 没有声明 experimental.jsModding 给出警告', () => {
+  it('JS mod 没有声明 experimental.jsModding 只给提示(官方示例 mod 自己也不声明)', () => {
     const { requiredGpNextFeatures: _omit, ...rest } = jsMod;
-    assert.ok(codes(validateManifest(rest, { hasScriptEntry: true }), 'warning').includes('JS_FEATURE_NOT_DECLARED'));
+    const result = validateManifest(rest, { hasScriptEntry: true });
+    assert.ok(codes(result, 'info').includes('JS_FEATURE_NOT_DECLARED'));
+    assert.ok(!codes(result, 'warning').includes('JS_FEATURE_NOT_DECLARED'));
+  });
+
+  it('官方示例 mod 的 pack.json(来自 pvzge.com/downloads/mods)没有错误和警告', () => {
+    // 逐字取自官方发布的 pvzge.entities / example.entity-framework / example.entity-content
+    const official = [
+      { uuid: 'pvzge.entities', name: 'Official Entity Framework', version: '0.1.0', packFormatVersion: 1, apiVersion: 2, js: { entry: 'scripts/main.js', startup: true, reloadable: false } },
+      {
+        uuid: 'example.entity-framework', name: 'Entity behavior framework', version: '1.0.1', packFormatVersion: 1, apiVersion: 2,
+        js: { entry: 'scripts/main.js', startup: true, reloadable: false }, depends: ['pvzge.entities'],
+      },
+    ];
+    for (const manifest of official) {
+      const result = validateManifest(manifest, { hasScriptEntry: true });
+      assert.deepEqual(codes(result, 'error'), [], manifest.uuid);
+      assert.deepEqual(codes(result, 'warning'), [], manifest.uuid);
+    }
+    // 内容 mod 没有 JS、没有 apiVersion,只依赖 JS mod
+    const content = { uuid: 'example.entity-content', name: 'Triangle and diamond', version: '1.0.0', packFormatVersion: 1, depends: ['example.entity-framework', 'pvzge.entities'] };
+    const result = validateManifest(content, { hasScriptEntry: false });
+    assert.deepEqual(codes(result, 'error'), []);
+    assert.deepEqual(codes(result, 'warning'), []);
   });
 });
 
