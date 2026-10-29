@@ -1,0 +1,35 @@
+{
+  "name": "gpn-kit",
+  "version": "0.1.0",
+  "description": "PvZ2 Gardendless (GP-Next) mod 作者工具链:离线校验 mod 目录与 pack.json",
+  "type": "module",
+  "license": "Apache-2.0",
+  "bin": {
+    "gpn": "dist/src/cli.js"
+  },
+  "main": "dist/src/index.js",
+  "files": [
+    "dist/src",
+    "data",
+    "scripts",
+    "examples",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepack": "tsc",
+    "test": "tsc && node --test \"dist/test/**/*.test.js\"",
+    "validate": "node dist/src/cli.js validate"
+  },
+  "dependencies": {
+    "fflate": "^0.8.3",
+    "json5": "^2.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "typescript": "^7.0.2"
+  }
+}

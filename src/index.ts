@@ -1,0 +1,16 @@
+export { validateManifest, KNOWN_FEATURE_IDS, KNOWN_MANIFEST_FIELDS } from './manifest.js';
+export type { ManifestContext } from './manifest.js';
+export { validateProject, validateTarget } from './project.js';
+export type { ValidateOptions } from './project.js';
+export { packProject } from './pack.js';
+export type { PackOptions, PackResult } from './pack.js';
+export { initProject, InitError } from './init.js';
+export type { InitOptions, ModType } from './init.js';
+export { validateFeaturesPatch, validateObjectsPatch } from './patchContent.js';
+export { loadBundledSchema, loadSchemaFile, SchemaError } from './schema.js';
+export type { Schema } from './schema.js';
+export { validateLangPatch, validatePatchingConfig } from './patches.js';
+export { checkVersionRange } from './semverRange.js';
+export type { RangeCheck } from './semverRange.js';
+export { formatResult, countDiagnostics } from './format.js';
+export type { Diagnostic, ProjectResult, Severity } from './types.js';

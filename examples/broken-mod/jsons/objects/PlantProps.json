@@ -1,0 +1,9 @@
+{
+  "objects": [
+    {
+      "aliases": ["peashoter"],
+      "objclass": "PlantProperties",
+      "objdata": { "SunCost": "100", "Cooldwn": 5, "Toughness": 300 }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "uuid": "yourname.hello-js",
+  "name": "Hello JS",
+  "version": "0.1.0",
+  "packFormatVersion": 1,
+  "apiVersion": 2,
+  "js": { "entry": "scripts/main.js" },
+  "gpNextVersion": "^1.5.0",
+  "requiredGpNextFeatures": ["experimental.jsModding"]
+}

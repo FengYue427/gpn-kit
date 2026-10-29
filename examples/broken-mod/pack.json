@@ -1,0 +1,11 @@
+{
+  "uuid": " legacy:my mod ",
+  "name": "Broken on purpose",
+  "packFormatVersion": 2,
+  "apiVersion": 1,
+  "js": { "entry": "scripts/missing.js", "reloadable": false },
+  "depends": ["yourname.framework", "yourname.framework", "some-npm-pkg@^1.0.0"],
+  "gpNextVersoin": "^1.5.0",
+  "minGpNextVersion": "1.5.0",
+  "requiredGpNextFeatures": ["experimental.jsModding", "experimental.teleport"]
+}

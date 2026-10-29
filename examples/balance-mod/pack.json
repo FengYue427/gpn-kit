@@ -1,0 +1,9 @@
+{
+  "uuid": "yourname.balance",
+  "name": "Balance changes",
+  "version": "1.0.0",
+  "packFormatVersion": 1,
+  "gpNextVersion": "^1.5.0",
+  "author": "yourname",
+  "description": "数据补丁示例:调整豌豆射手的数值"
+}
