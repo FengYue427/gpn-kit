@@ -50,7 +50,8 @@ export function initProject(options: InitOptions): string[] {
     packFormatVersion: 1,
     ...(options.type === 'js' ? { apiVersion: 2, js: { entry: 'scripts/main.js' } } : {}),
     gpNextVersion: '^1.5.0',
-    ...(options.type === 'js' ? { requiredGpNextFeatures: ['experimental.jsModding'] } : {}),
+    // 不默认声明 requiredGpNextFeatures:官方示例 mod 都不声明,
+    // 且有社区报告(pvzg_site#452)称玩家未开启该功能时导入声明了它的 mod 可能导致启动失败
     ...(options.author?.trim() ? { author: options.author.trim() } : {}),
   };
 

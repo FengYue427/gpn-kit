@@ -5,6 +5,5 @@
   "packFormatVersion": 1,
   "apiVersion": 2,
   "js": { "entry": "scripts/main.js" },
-  "gpNextVersion": "^1.5.0",
-  "requiredGpNextFeatures": ["experimental.jsModding"]
+  "gpNextVersion": "^1.5.0"
 }

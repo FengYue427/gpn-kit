@@ -37,13 +37,13 @@ describe('initProject', () => {
     assert.equal(manifest.author, 'me');
   });
 
-  it('js 骨架声明了 apiVersion、入口与 experimental.jsModding', () => {
+  it('js 骨架声明了 apiVersion 与入口,且不默认声明 requiredGpNextFeatures(与官方示例一致)', () => {
     const dir = path.join(tempDir(), 'j');
     initProject({ dir, uuid: 'tester.js', type: 'js' });
     const manifest = JSON.parse(fs.readFileSync(path.join(dir, 'pack.json'), 'utf8'));
     assert.equal(manifest.apiVersion, 2);
     assert.equal(manifest.js.entry, 'scripts/main.js');
-    assert.deepEqual(manifest.requiredGpNextFeatures, ['experimental.jsModding']);
+    assert.equal(manifest.requiredGpNextFeatures, undefined);
     assert.match(fs.readFileSync(path.join(dir, 'scripts/main.js'), 'utf8'), /export default/);
   });
 

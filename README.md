@@ -180,6 +180,18 @@ gpn validate my-mod --schema data/schema-0.16.0.json
 $env:GPN_GAME_JSON_DIR = "game-json"; npm test
 ```
 
+## 已知的 GP-Next 问题(来自社区 issue,未经本工具验证)
+
+下面这些是官方仓库里其他用户报告的问题,与本工具无关,也不是本工具能修复的,列在这里只是帮 mod 作者排错。**我没有复现过它们,官方也还没有回复**,请以官方为准。
+
+- [pvzg_site#452](https://github.com/Gzh0821/pvzg_site/issues/452):在 JS Modding 关闭时,导入声明了 `requiredGpNextFeatures: ["experimental.jsModding"]` 的 mod,据报告会让启动永久失败,恢复面板无法清除。因此 `gpn init --type js` **不再默认声明**这个字段(官方示例 mod 也不声明)。
+- [pvzg_site#447](https://github.com/Gzh0821/pvzg_site/issues/447):GP-Next 1.5.2 中启用任意 mod 后启动失败,报 `Native build identity is unavailable`,"Try force start" 可以启动。
+
+#452 的报告者提供的临时办法(同样未经验证):
+
+- 通过 `gp-next\packs\` 目录加载 mod,而不是在界面里导入;
+- 一旦启动失败,备份后删除 `gp-next\configuration-state.json` 再重启。
+
 ## 许可证
 
 [Apache License 2.0](LICENSE),与 PvZ2 Gardendless 官网仓库使用的协议一致。
